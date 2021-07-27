@@ -5,3 +5,11 @@
 export interface Locals {
 	userid: string;
 }
+
+interface FeedObject {
+	title: string;
+	link: string;
+	imageUrl: string;
+	description: string;
+	pubDate: string;
+}
