@@ -1,9 +1,10 @@
 <script lang="ts">
+	import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
 	import { page } from '$app/stores';
 	import logo from './makoto.jpeg';
 </script>
 
-<header>
+<header class="fixed z-40 w-full">
 	<div class="corner">
 		<a href="/">
 			<img class="rounded-full" src={logo} alt="SvelteKit" />
@@ -27,7 +28,16 @@
 		</svg>
 	</nav>
 
-	<div class="corner">All the socials</div>
+	<div class="corner text-primary">
+		<a
+			class="text-primary hover:bg-primary-trans p-2 rounded-xl"
+			href="https://twitter.com/AsaharaM"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<FaTwitter />
+		</a>
+	</div>
 </header>
 
 <style>
@@ -57,14 +67,12 @@
 	}
 
 	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		@apply flex justify-center;
 	}
 
 	svg {
-		width: 2em;
-		height: 3em;
+		width: auto;
+		height: 4em;
 		display: block;
 	}
 
@@ -73,10 +81,11 @@
 	}
 
 	ul {
+		@apply flex flex-col-reverse sm:flex-row;
 		position: relative;
 		padding: 0;
 		margin: 0;
-		height: 3em;
+		height: 4em;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -102,21 +111,27 @@
 		border-top: var(--size) solid var(--accent-color);
 	}
 
+	a {
+		transition: color 0.2s linear;
+		transition: background-color 0.2s linear;
+	}
+
 	nav a {
 		display: flex;
 		height: 100%;
 		align-items: center;
 		padding: 0 1em;
-		color: var(--heading-color);
+		color: var(--primary-color);
 		font-weight: 700;
 		font-size: 0.8rem;
 		text-transform: uppercase;
 		letter-spacing: 10%;
 		text-decoration: none;
 		transition: color 0.2s linear;
+		transition: background-color 0.2s linear;
 	}
 
 	a:hover {
-		color: var(--accent-color);
+		color: var(--secondary-color);
 	}
 </style>

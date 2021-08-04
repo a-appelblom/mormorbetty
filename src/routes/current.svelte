@@ -36,7 +36,7 @@
 	});
 </script>
 
-<div class="grid grid-cols-2 gap-6 mt-12">
+<div class="grid md:grid-cols-2 gap-6 mt-16 h-screen">
 	<Rss {feed} />
 
 	<Twitter />

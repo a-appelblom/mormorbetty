@@ -1,50 +1,34 @@
-<script context="module">
-	import { browser, dev } from '$app/env';
-
-	// we don't need any JS on this page, though we'll load
-	// it in dev so that we get hot module replacement...
-	export const hydrate = dev;
-
-	// ...but if the client-side router is already loaded
-	// (i.e. we came here from elsewhere in the app), use it
-	export const router = browser;
-
-	// since there's no dynamic data here, we can prerender
-	// it so that it gets served as a static asset in prod
-	export const prerender = true;
+<script lang="ts">
+	import { aboutPage as content } from '$lib/content';
 </script>
 
 <svelte:head>
 	<title>About</title>
 </svelte:head>
 
-<div class="content">
-	<h1>About this app</h1>
-
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<!-- TODO lose the @next! -->
-	<pre>npm init svelte@next</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/todos">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using
-		it with JavaScript disabled!
-	</p>
+<div class="container mx-auto mt-16">
+	<div class="w-full flex flex-col items-center">
+		<h1 class="text-primary text-4xl">{content.hero.title}</h1>
+		<p class="text-primary">{content.hero.subtitle}</p>
+	</div>
+	<div class="container flex flex-col items-center justify-around gap-8">
+		{#each content.sections as section}
+			<div
+				class="grid grid-cols-1 md:grid-cols-3 w-full gap-4 rounded-3xl border-primary border-4 bg-secondary-trans p-8"
+			>
+				<div class="col-span-2 flex flex-col justify-center gap-8">
+					<h3 class="text-primary text-3xl">{section.title}</h3>
+					<p class="text-primary">{section.text}</p>
+				</div>
+				<img
+					class="col-span-1 max-w-full h-auto object-contain place-self-center"
+					src={section.image}
+					alt=""
+				/>
+			</div>
+		{/each}
+	</div>
 </div>
 
 <style>
-	.content {
-		width: 100%;
-		max-width: var(--column-width);
-		margin: var(--column-margin-top) auto 0 auto;
-	}
 </style>

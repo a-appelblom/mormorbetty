@@ -12,7 +12,7 @@
 	--primary-color: hsla(46, 100%, 44%, 1);
 	--secondary-color: hsla(331, 70%, 88%, 1);
 	--tertiary-color: hsla(330, 3%, 12%, 1);
-	--accent-color: #ff3e00;
+	--accent-color: hsla(330, 3%, 12%, 1);
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
@@ -23,7 +23,17 @@
 body {
 	min-height: 100vh;
 	margin: 0;
-	background-color: var(--pure-white);
+	background-color: black;
+	background-image: radial-gradient(
+			hsla(46, 100%, 44%, 1),
+			hsla(46, 100%, 44%, 0.2) 2px,
+			transparent 40px
+		),
+		radial-gradient(hsla(46, 100%, 44%, 1), hsla(46, 100%, 44%, 0.15) 1px, transparent 30px),
+		radial-gradient(hsla(46, 100%, 44%, 1), hsla(46, 100%, 44%, 0.1) 2px, transparent 40px),
+		radial-gradient(hsla(46, 100%, 44%, 0.4), hsla(46, 100%, 44%, 0.1) 2px, transparent 30px);
+	background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+	background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
 body::before {

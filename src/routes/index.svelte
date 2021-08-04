@@ -3,9 +3,10 @@
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+	import Hero from '$lib/home/Hero.svelte';
 </script>
 
 <svelte:head>
 	<title>Home</title>
 </svelte:head>
+<Hero />
